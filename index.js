@@ -1,4 +1,4 @@
-angular.module('angular-aui-showcase', ['angular-aui'])
+angular.module('angular-aui-examples', ['angular-aui'])
 .controller('DatePickerCtrl', ['$scope', function($scope) {
   
 }]);
