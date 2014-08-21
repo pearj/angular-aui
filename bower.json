@@ -1,0 +1,22 @@
+{
+  "name": "angular-aui",
+  "version": "0.0.1",
+  "homepage": "https://github.com/OleksandrBezhan/angular-aui",
+  "authors": [
+    "OleksandrB <oleksandr.bezhan@gmail.com>"
+  ],
+  "description": "Angular.js module for Atlassian UI",
+  "keywords": [
+    "angularjs",
+    "atlassian-ui",
+    "aui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
