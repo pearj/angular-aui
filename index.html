@@ -8,11 +8,16 @@
     <script type="text/javascript" src="index.js"></script>
     
     <!-- AUI -->
+    <!--dependencies-->
+    <script src="/bower_components/requirejs/require.js"></script>
+    <!--/ dependencies -->
     <link rel="stylesheet" href="/lib/aui/5.7.0/css/aui.css" media="all">
     <!--[if IE 9]><link rel="stylesheet" href="/lib/aui/5.7.0/css/aui-ie9.css" media="all"><![endif]-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/lib/aui/5.7.0/js/aui.js"></script>
     <script src="/lib/aui/5.7.0/js/aui-datepicker.js"></script>
+    <link rel="stylesheet" href="/lib/aui/5.7.0/css/aui-experimental.css" media="all">
+    <script src="/lib/aui/5.7.0/js/aui-experimental.js"></script>
     <!--/ AUI -->
 
   </head>
@@ -34,16 +39,13 @@
     <div class="aui-page-panel">
       <div class="aui-page-panel-inner">
         <section class="aui-page-panel-content">
-            <h2>Angular AUI</h2>
-            <div ng-controller="DatePickerCtrl"></div>
-              <h1>DatePicker</h1>
-              
-              <input type="date" aui-date-picker ng-model="model" />
-              <!--<input type="text" placeholder="yy-mm-dd" ng-model="model" class="ng-touched ng-dirty ng-valid ng-valid-date">      -->
-              <code>
-                $scope.model = {{model}};
-              </code>
-            </div>
+          <div ng-controller="DatePickerCtrl">
+            <h2>DatePicker</h2>
+            <input type="date" aui-date-picker ng-model="model" />
+            <code>
+              $scope.model = {{model}};
+            </code>
+          </div>
         </section>
       </div>
     </div>

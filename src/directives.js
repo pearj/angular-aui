@@ -5,6 +5,7 @@ angular.module('angular-aui-directives', [])
           overrideBrowserDefault: true,
           onSelect: function(newValue) {
             $scope.$apply(function() {
+            // model doesn't get updates  when `overrideBrowserDefault` = true
                 ngModelCtrl.$setViewValue(newValue);
             });
           }
