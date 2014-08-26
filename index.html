@@ -49,9 +49,13 @@
           
           <div ng-controller="InlineDialogCtrl" class="aui-group">
             <h2>InlineDialog</h2>
-            <button class="aui-button aui-button-subtle" href="#" aui-inline-dialog>
-              <span class="aui-icon aui-icon-small aui-iconfont-share">share</span> Show inline dialog
-            </button>
+            <a href="#" aui-inline-dialog options="{persistent: true}">
+              Open inline dialog
+              <div aui-inline-dialog-content>
+                <h2>Hello {{name}}!</h2><button class="aui-button" ng-click="$hide()">Close</button></form>
+              </div>
+            </a>
+            <input type="text" ng-model="name"/>
           </div>
         </section>
       </div>

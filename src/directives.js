@@ -16,17 +16,36 @@ angular.module('angular-aui-directives', [])
         link: link
     };
 }])
-.directive('auiInlineDialog', [function() {
+.directive('auiInlineDialog', ['$compile', function($compile) {
+    var dialogContent;
     function link(scope, element, attrs) {
-        AJS.InlineDialog(AJS.$(element), 1,
+        var dialog = AJS.InlineDialog(AJS.$(element), 1,
           function(content, trigger, showPopup) {
-              content.css({"padding":"20px"}).html('<h2>Inline dialog</h2><p>The inline dialog is a wrapper for secondary content/controls to be displayed on user request. Consider this component as displayed in context to the triggering control with the dialog overlaying the page content.</p><button class="aui-button">Done</button></form>');
-              showPopup();
-              return false;
-          }
-      );
+            content.html(dialogContent);
+            showPopup();
+            return false;
+        }, scope.$eval(attrs.options));
+        scope.$hide = dialog.hide.bind(dialog);
+        scope.$refresh = dialog.refresh.bind(dialog);
+        scope.$show = dialog.show.bind(dialog);
+    }
+    function controller($scope) {
+        this.drawContent = function(html) {
+            dialogContent = $compile(html)($scope);
+        };
     }
     return {
+        controller: controller,
+        link: link
+    };
+}])
+.directive('auiInlineDialogContent', ['$timeout', function($timeout) {
+    function link(scope, element, attrs, inlineDialogCtrl) {
+        inlineDialogCtrl.drawContent(element[0].innerHTML);
+        element.css('display', 'none');
+    }
+    return {
+        require: '^auiInlineDialog',
         link: link
     };
 }]);
