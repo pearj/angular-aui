@@ -45,6 +45,22 @@ module.exports = function(grunt) {
                 files: '<%= project.src %>/*.js',
                 tasks: ['concat']
             }
+        },
+        release: {
+            bumpVersion: {
+                bump: true,
+                commit: false,
+                tag: false,
+                push: false,
+                pushTags: false,
+                npm: false,
+                npmtag: false
+            },
+            commit: {
+                bump: false,
+                npm: false,
+                npmtag: false,
+            }
         }
     });
 
@@ -56,5 +72,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('install', ['bower:install'])
     grunt.registerTask('default', ['connect', 'watch']);
-
+    
+    grunt.registerTask('releasePatch', ['release:bumpVersion', 'concat', 'release:commit'])
+    grunt.registerTask('releaseMinor', ['release:bumpVersion', 'concat', 'release:commit'])
+    grunt.registerTask('releaseMajor', ['release:bumpVersion', 'concat', 'release:commit'])
 };
