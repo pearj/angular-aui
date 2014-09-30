@@ -1,6 +1,6 @@
 /*! 
 * angular-aui
-* Version - 0.0.1
+* Version - 0.0.2
 * Built - 2014-09-30
 * Author - oleksandr.bezhan@gmail.com
 * url - https://github.com/OleksandrBezhan/angular-aui.git
