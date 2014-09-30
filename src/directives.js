@@ -48,4 +48,12 @@ angular.module('angular-aui-directives', [])
         require: '^auiInlineDialog',
         link: link
     };
+}])
+.directive('auiSelect2', [function() {
+    function link($scope, element, attrs) {
+        AJS.$(element).auiSelect2();
+    }
+    return {
+        link: link
+    };
 }]);

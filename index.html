@@ -57,6 +57,15 @@
             </a>
             <input type="text" ng-model="name"/>
           </div>
+
+          <div ng-controller="Select2Ctrl" class="aui-group">
+            <h2>Select2</h2>
+            <select ng-model="selectedCity">
+              <option value=""></option>
+              <option ng-repeat="city in cities" ng-selected="{{city == selectedCity}}" value="{{city}}">{{city}}</option>
+            </select>
+            <input type="text" ng-model="selectedCity"/>
+          </div>
         </section>
       </div>
     </div>
