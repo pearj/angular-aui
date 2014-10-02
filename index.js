@@ -4,6 +4,6 @@ angular.module('angular-aui-examples', ['angular-aui'])
     $scope.name = 'John Dou';
 })
 .controller('Select2Ctrl', function($scope) {
-  $scope.cities = ['Ukraine', 'USA', 'Austria', 'Thailand'];
-  $scope.selectedCity = $scope.cities[0];
+  $scope.countries = [{id: 'USA', text:'USA'}, {id: 'Ukraine', text:'Ukraine'}, {id: 'Austria', text:'Austria'}, {id: 'Thailand', text:'Thailand'}];
+  $scope.selectedCountry = $scope.countries[0];
 });

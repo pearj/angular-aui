@@ -59,11 +59,13 @@
 
           <div ng-controller="Select2Ctrl" class="aui-group">
             <h2>Select2</h2>
-            <select ng-model="selectedCity">
-              <option value=""></option>
-              <option ng-repeat="city in cities" ng-selected="{{city == selectedCity}}" value="{{city}}">{{city}}</option>
+            <select aui-select2 ng-model="selectedCountry">
+              <option ng-repeat="country in countries"
+                        ng-selected="{{country.id == selectedCountry.id}}"
+                        value="{{country}}">{{country.text}}</option>
             </select>
-            <input type="text" ng-model="selectedCity"/>
+            <input type="button" value="Change" ng-click="selectedCountry = countries[1]"/>
+            Country: <input type="text" ng-model="selectedCountry.id" disabled/>
           </div>
         </section>
       </div>

@@ -50,10 +50,19 @@ angular.module('angular-aui-directives', [])
     };
 }])
 .directive('auiSelect2', [function() {
-    function link($scope, element, attrs) {
+    function link($scope, element, attrs, ngModelCtrl) {
         AJS.$(element).auiSelect2();
+        ngModelCtrl.$render = function() {
+            AJS.$(element).select2('data', ngModelCtrl.$viewValue);
+        };
+        AJS.$(element).on('change', function(value) {
+            $scope.$apply(function() {
+                ngModelCtrl.$setViewValue(JSON.parse(value.val));
+            });
+        });
     }
     return {
+        require: 'ngModel',
         link: link
     };
 }]);

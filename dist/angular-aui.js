@@ -1,7 +1,7 @@
 /*! 
 * angular-aui
 * Version - 0.0.2
-* Built - 2014-09-30
+* Built - 2014-10-02
 * Author - oleksandr.bezhan@gmail.com
 * url - https://github.com/OleksandrBezhan/angular-aui.git
 */
@@ -58,11 +58,20 @@ angular.module('angular-aui', ['angular-aui-directives']);;angular.module('angul
         link: link
     };
 }])
-.directive('auiSelect2', [function() {
-    function link($scope, element, attrs) {
+.directive('auiSelect2', ['$parse', function($parse) {
+    function link($scope, element, attrs, ngModelCtrl) {
         AJS.$(element).auiSelect2();
+        ngModelCtrl.$render = function() {
+            AJS.$(element).select2('data', ngModelCtrl.$viewValue);
+        };
+        AJS.$(element).on('change', function(value) {
+            $scope.$apply(function() {
+                ngModelCtrl.$setViewValue(JSON.parse(value.val));
+            });
+        });
     }
     return {
+        require: 'ngModel',
         link: link
     };
 }]);
